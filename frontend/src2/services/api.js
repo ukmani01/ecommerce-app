@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const API = axios.create({
-  baseURL: 'http://localhost:5000/api',
+  baseURL: import.meta.env.VITE_API_URL + '/api',
   headers: { 'Content-Type': 'application/json' },
 });
 
@@ -23,6 +23,6 @@ API.interceptors.response.use(
   }
 );
 
-export const IMG = (name) => `http://localhost:5000/uploads/${name || 'placeholder.png'}`;
+export const IMG = (name) => `${import.meta.env.VITE_API_URL}/uploads/${name || 'placeholder.png'}`;
 
 export default API;
