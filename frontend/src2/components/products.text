@@ -1,0 +1,90 @@
+import { Link } from 'react-router-dom';   itha konjsam upgrate pannu maily shadow feel begginer 
+import { ShoppingBag, Heart, Star } from 'lucide-react';
+import { useCart } from '../context/CartContext';
+import { IMG } from '../services/api';
+
+const ProductCard = ({ product, index = 0 }) => {
+  const { addToCart } = useCart();
+  const discount = product.originalPrice > product.price
+    ? Math.round(((product.originalPrice - product.price) / product.originalPrice) * 100) : 0;
+
+  return (
+    <article
+      className="card group cursor-pointer"
+      style={{
+        animationDelay: `${index * 60}ms`,
+        animation: `fadeUp 0.4s ease ${index * 60}ms forwards`
+      }}
+    >
+      <Link to={`/product/${product._id}`} className="block">
+        {/* Image */}
+        <div className="relative overflow-hidden bg-ink-50 aspect-[3/4]">
+          <img
+            src={IMG(product.images?.[0])}
+            alt={product.title}
+            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
+            loading="lazy"
+          />
+
+          {/* Badges */}
+          <div className="absolute top-3 left-3 flex flex-col gap-1.5">
+            {discount > 0 && <span className="tag-discount">{discount}% OFF</span>}
+            {product.isFeatured && <span className="badge bg-ink-900 text-white">Featured</span>}
+            {product.stock < 5 && product.stock > 0 && <span className="tag-danger">Only {product.stock} left</span>}
+          </div>
+
+          {/* Quick actions */}
+          <div className="absolute top-3 right-3 flex flex-col gap-2 opacity-0 group-hover:opacity-100 transition-all duration-200 translate-x-2 group-hover:translate-x-0">
+            <button
+              onClick={(e) => { e.preventDefault(); }}
+              className="w-9 h-9 bg-white rounded-xl shadow-card flex items-center justify-center text-ink-500 hover:text-brand-600 hover:shadow-card-hover transition-all"
+            >
+              <Heart size={15} />
+            </button>
+            <button
+              onClick={(e) => { e.preventDefault(); addToCart(product._id); }}
+              className="w-9 h-9 bg-ink-900 rounded-xl shadow flex items-center justify-center text-white hover:bg-brand-600 transition-colors"
+            >
+              <ShoppingBag size={15} />
+            </button>
+          </div>
+
+          {/* Out of stock overlay */}
+          {product.stock === 0 && (
+            <div className="absolute inset-0 bg-white/70 backdrop-blur-sm flex items-center justify-center">
+              <span className="bg-ink-900 text-white text-xs font-semibold px-3 py-1.5 rounded-full">Out of Stock</span>
+            </div>
+          )}
+        </div>
+
+        {/* Info */}
+        <div className="p-4">
+          <p className="text-[11px] font-semibold text-ink-400 uppercase tracking-wider mb-1">{product.category}</p>
+          <h3 className="text-sm font-semibold text-ink-900 leading-snug line-clamp-2 mb-2">{product.title}</h3>
+
+          {/* Rating */}
+          {product.rating > 0 && (
+            <div className="flex items-center gap-1.5 mb-2">
+              <div className="flex items-center gap-0.5">
+                {[...Array(5)].map((_, i) => (
+                  <Star key={i} size={10} className={i < Math.floor(product.rating) ? 'fill-amber-400 text-amber-400' : 'fill-ink-200 text-ink-200'} />
+                ))}
+              </div>
+              <span className="text-[11px] text-ink-400">({product.reviewCount || 0})</span>
+            </div>
+          )}
+
+          {/* Price */}
+          <div className="flex items-baseline gap-2">
+            <span className="text-base font-bold text-ink-900">₹{product.price.toLocaleString('en-IN')}</span>
+            {product.originalPrice > product.price && (
+              <span className="text-xs text-ink-400 line-through">₹{product.originalPrice.toLocaleString('en-IN')}</span>
+            )}
+          </div>
+        </div>
+      </Link>
+    </article>
+  );
+};
+
+export default ProductCard;
