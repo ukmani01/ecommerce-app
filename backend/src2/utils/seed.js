@@ -13,7 +13,7 @@ const { default: Product } = await import('../models/Product.js');
 const { default: User } = await import('../models/User.js');
 
 const products = [
-  { title: "Classic Cotton T-Shirt", price: 599, originalPrice: 999, images: ["https://i.pinimg.com/736x/7a/3c/07/7a3c07253780eaf80bc4765ff29d0a5d.jpg"], description: "Premium soft cotton t-shirt", category: "Men", stock: 50, sizes: ["S","M","L","XL"], isFeatured: true },
+  { title: "Classic Cotton T-Shirt", price: 599, originalPrice: 999, images: ["img1.png"], description: "Premium soft cotton t-shirt", category: "Men", stock: 50, sizes: ["S","M","L","XL"], isFeatured: true },
   { title: "Women's Floral Dress", price: 1299, originalPrice: 2499, images: ["img1.png"], description: "Elegant floral print dress", category: "Women", stock: 30, sizes: ["XS","S","M","L"], isFeatured: true },
   { title: "Denim Jacket", price: 1999, originalPrice: 3999, images: ["img2.png"], description: "Classic denim jacket", category: "Men", stock: 25, sizes: ["S","M","L","XL"], isFeatured: false },
   { title: "Kids Party Wear Set", price: 899, originalPrice: 1599, images: ["img3.png"], description: "Kids party wear set", category: "Kids", stock: 40, sizes: ["2Y","4Y","6Y","8Y"], isFeatured: false },
