@@ -108,67 +108,89 @@ const EditorialHero = () => {
             </div>
 
             {/* =========================================================
-                MOBILE ONLY (below md) — new minimalist family hero
-                Rendered only below md via block md:hidden.
-                Completely independent from the desktop block above —
-                no shared classes, no media-query overrides needed.
+                MOBILE ONLY (below md) — fixed: full-width 70vh background
+                with left-aligned vertically centered text overlay.
+                Styled to match thereformation.com aesthetic.
             ========================================================= */}
-            {/* MOBILE ONLY */}
             <div
                 className="block md:hidden relative w-full overflow-hidden"
-                style={{
-                    height: "70vh",
-                    backgroundImage: `url(${familyImg})`,
-                    backgroundSize: "cover",
-                    backgroundPosition: "center",
-                    backgroundRepeat: "no-repeat",
-                }}
-            ></div>
-            <div
-                className="absolute left-0 top-0 h-full flex flex-col justify-center"
-                style={{
-                    width: "33%",
-                    paddingLeft: "24px",
-                    zIndex: 10,
-                }}
+                style={{ height: "70vh" }}
             >
-                <span
+                {/* Background image — fills the entire container */}
+                <div
+                    className="absolute inset-0 w-full h-full"
                     style={{
-                        fontSize: "11px",
-                        letterSpacing: "0.25em",
-                        textTransform: "uppercase",
+                        backgroundImage: `url(${familyImg})`,
+                        backgroundSize: "cover",
+                        backgroundPosition: "center",
+                        backgroundRepeat: "no-repeat",
                     }}
-                >
-                    THEORY
-                </span>
+                />
 
-                <h1
-                    style={{
-                        marginTop: "12px",
-                        fontSize: "2rem",
-                        lineHeight: "1.05",
-                        fontWeight: 500,
-                    }}
-                >
-                    Your Order
-                </h1>
+                {/* Subtle dark overlay for text readability */}
+                <div className="absolute inset-0 bg-black/25" />
 
-                <a
-                    href="/shop-now"
+                {/* Text overlay — left side, vertically centered */}
+                <div
+                    className="absolute left-0 top-0 h-full flex items-center"
                     style={{
-                        marginTop: "18px",
-                        display: "inline-block",
-                        background: "#111",
-                        color: "#fff",
-                        padding: "10px 18px",
-                        borderRadius: "999px",
-                        textDecoration: "none",
-                        fontSize: "11px",
-                        letterSpacing: "0.12em",
+                        width: "55%",
+                        paddingLeft: "28px",
+                        zIndex: 10,
                     }}
                 >
-                    SHOP NOW
-                </a>
+                    <div>
+                        <span
+                            style={{
+                                fontSize: "11px",
+                                letterSpacing: "0.25em",
+                                textTransform: "uppercase",
+                                color: "rgba(255,255,255,0.9)",
+                                fontWeight: 300,
+                            }}
+                        >
+                            THEORY
+                        </span>
+
+                        <h1
+                            style={{
+                                marginTop: "12px",
+                                fontSize: "2rem",
+                                lineHeight: "1.05",
+                                fontWeight: 500,
+                                color: "#fff",
+                                letterSpacing: "-0.01em",
+                            }}
+                        >
+                            Your Order
+                        </h1>
+
+                        <a
+                            href="/shop-now"
+                            style={{
+                                marginTop: "18px",
+                                display: "inline-block",
+                                background: "#fff",
+                                color: "#111",
+                                padding: "10px 22px",
+                                borderRadius: "999px",
+                                textDecoration: "none",
+                                fontSize: "11px",
+                                letterSpacing: "0.12em",
+                                fontWeight: 500,
+                                transition: "all 0.2s ease",
+                            }}
+                            onMouseEnter={(e) => {
+                                e.currentTarget.style.background = "#f0f0f0";
+                            }}
+                            onMouseLeave={(e) => {
+                                e.currentTarget.style.background = "#fff";
+                            }}
+                        >
+                            SHOP NOW
+                        </a>
+                    </div>
+                </div>
             </div>
 
             {/* Shared styles */}
