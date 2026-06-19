@@ -2,7 +2,7 @@ import React from 'react';
 import { ArrowRight } from 'lucide-react';
 import heroimg from "../heroIMG/heroimg.jpg"
 // Mobile image — TODO: replace with your actual family photo path
-import familyImg from "../heroIMG/familyhero.jpg"
+import familyImg from "../heroIMG/heroimg2.png"
 
 const heroDesktopImg = heroimg;
 
