@@ -118,79 +118,57 @@ const EditorialHero = () => {
                 className="block md:hidden relative w-full overflow-hidden"
                 style={{
                     height: "70vh",
-                    background: "#F4F3F1",
+                    backgroundImage: `url(${familyImg})`,
+                    backgroundSize: "cover",
+                    backgroundPosition: "center",
+                    backgroundRepeat: "no-repeat",
+                }}
+            ></div>
+            <div
+                className="absolute left-0 top-0 h-full flex flex-col justify-center"
+                style={{
+                    width: "33%",
+                    paddingLeft: "24px",
+                    zIndex: 10,
                 }}
             >
-                <img
-                    src={familyImg}
-                    alt="Family"
-                    className="absolute inset-0 w-full h-full"
+                <span
                     style={{
-                        objectFit: "contain",
-                        objectPosition: "right bottom",
-                    }}
-                />
-
-                <div
-                    className="absolute left-0 top-0 h-full flex flex-col justify-center"
-                    style={{
-                        width: "33%",
-                        paddingLeft: "24px",
-                        paddingRight: "8px",
-                        paddingTop: "40px",
-                        paddingBottom: "40px",
-                        zIndex: 10,
+                        fontSize: "11px",
+                        letterSpacing: "0.25em",
+                        textTransform: "uppercase",
                     }}
                 >
-                    <span
-                        style={{
-                            fontFamily: "'Outfit', sans-serif",
-                            fontSize: "11px",
-                            letterSpacing: "0.28em",
-                            textTransform: "uppercase",
-                            color: "#111",
-                            marginBottom: "12px",
-                        }}
-                    >
-                        THEORY
-                    </span>
+                    THEORY
+                </span>
 
-                    <h1
-                        style={{
-                            margin: 0,
-                            fontFamily: "'Outfit', sans-serif",
-                            fontWeight: 500,
-                            fontSize: "1.9rem",
-                            lineHeight: "1.05",
-                            color: "#111",
-                        }}
-                    >
-                        Your Order
-                    </h1>
+                <h1
+                    style={{
+                        marginTop: "12px",
+                        fontSize: "2rem",
+                        lineHeight: "1.05",
+                        fontWeight: 500,
+                    }}
+                >
+                    Your Order
+                </h1>
 
-                    <a
-                        href="/shop-now"
-                        style={{
-                            marginTop: "18px",
-                            display: "inline-flex",
-                            alignItems: "center",
-                            justifyContent: "center",
-                            width: "fit-content",
-                            padding: "11px 18px",
-                            background: "#111",
-                            color: "#fff",
-                            textDecoration: "none",
-                            borderRadius: "999px",
-                            fontFamily: "'Outfit', sans-serif",
-                            fontSize: "11px",
-                            fontWeight: 500,
-                            letterSpacing: "0.12em",
-                            textTransform: "uppercase",
-                        }}
-                    >
-                        Shop Now
-                    </a>
-                </div>
+                <a
+                    href="/shop-now"
+                    style={{
+                        marginTop: "18px",
+                        display: "inline-block",
+                        background: "#111",
+                        color: "#fff",
+                        padding: "10px 18px",
+                        borderRadius: "999px",
+                        textDecoration: "none",
+                        fontSize: "11px",
+                        letterSpacing: "0.12em",
+                    }}
+                >
+                    SHOP NOW
+                </a>
             </div>
 
             {/* Shared styles */}
