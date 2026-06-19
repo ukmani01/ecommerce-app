@@ -113,86 +113,83 @@ const EditorialHero = () => {
                 Completely independent from the desktop block above —
                 no shared classes, no media-query overrides needed.
             ========================================================= */}
+            {/* MOBILE ONLY */}
             <div
                 className="block md:hidden relative w-full overflow-hidden"
                 style={{
-                    height: '70vh',
-                    background: '#F4F3F1', // soft light-gray studio background — shows through as letterboxing too
+                    height: "70vh",
+                    background: "#F4F3F1",
                 }}
             >
-                {/* Full-bleed family photo — fills the whole hero, anchored right.
-                    object-contain keeps the full body visible (no cropping); any
-                    space the photo doesn't fill is covered by the container's own
-                    gray background, so it reads as one continuous backdrop. */}
                 <img
                     src={familyImg}
-                    alt="Family wearing everyday essentials"
+                    alt="Family"
                     className="absolute inset-0 w-full h-full"
                     style={{
-                        objectFit: 'contain',
-                        objectPosition: 'right bottom',
+                        objectFit: "contain",
+                        objectPosition: "right bottom",
                     }}
                 />
 
-                {/* Text overlay — sits directly on the photo's negative space, left side */}
                 <div
-                    className="absolute inset-y-0 left-0 z-10 flex flex-col justify-center pl-6 pr-2 box-border"
-                    style={{ maxWidth: '58%' }}
+                    className="absolute left-0 top-0 h-full flex flex-col justify-center"
+                    style={{
+                        width: "33%",
+                        paddingLeft: "24px",
+                        paddingRight: "8px",
+                        paddingTop: "40px",
+                        paddingBottom: "40px",
+                        zIndex: 10,
+                    }}
                 >
-                    <h1 className="m-0">
-                        <span
-                            className="block text-black"
-                            style={{
-                                fontFamily: "'Outfit', sans-serif",
-                                fontWeight: 500,
-                                fontSize: 'clamp(1.4rem, 8vw, 1.75rem)',
-                                letterSpacing: '0.01em',
-                                lineHeight: 1.15,
-                            }}
-                        >
-                            FAMILY
-                        </span>
-                        <span
-                            className="block text-black"
-                            style={{
-                                fontFamily: "'Outfit', sans-serif",
-                                fontWeight: 500,
-                                fontSize: 'clamp(1.4rem, 8vw, 1.75rem)',
-                                letterSpacing: '0.01em',
-                                lineHeight: 1.15,
-                            }}
-                        >
-                            ESSENTIALS
-                        </span>
-                        <span
-                            className="block"
-                            style={{
-                                fontFamily: "'Outfit', sans-serif",
-                                fontWeight: 500,
-                                fontSize: 'clamp(0.85rem, 4.2vw, 1rem)',
-                                letterSpacing: '0.1em',
-                                color: 'rgba(0,0,0,0.62)',
-                                marginTop: '0.5rem',
-                            }}
-                        >
-                            FOR EVERYDAY
-                        </span>
-                    </h1>
-
-                    <button
-                        className="mt-6 w-fit rounded-full bg-black text-white"
+                    <span
                         style={{
                             fontFamily: "'Outfit', sans-serif",
-                            fontWeight: 500,
-                            fontSize: '0.68rem',
-                            letterSpacing: '0.12em',
-                            padding: '0.65rem 1.3rem',
-                            border: 'none',
-                            cursor: 'pointer',
+                            fontSize: "11px",
+                            letterSpacing: "0.28em",
+                            textTransform: "uppercase",
+                            color: "#111",
+                            marginBottom: "12px",
                         }}
                     >
-                        SHOP NOW
-                    </button>
+                        THEORY
+                    </span>
+
+                    <h1
+                        style={{
+                            margin: 0,
+                            fontFamily: "'Outfit', sans-serif",
+                            fontWeight: 500,
+                            fontSize: "1.9rem",
+                            lineHeight: "1.05",
+                            color: "#111",
+                        }}
+                    >
+                        Your Order
+                    </h1>
+
+                    <a
+                        href="/shop-now"
+                        style={{
+                            marginTop: "18px",
+                            display: "inline-flex",
+                            alignItems: "center",
+                            justifyContent: "center",
+                            width: "fit-content",
+                            padding: "11px 18px",
+                            background: "#111",
+                            color: "#fff",
+                            textDecoration: "none",
+                            borderRadius: "999px",
+                            fontFamily: "'Outfit', sans-serif",
+                            fontSize: "11px",
+                            fontWeight: 500,
+                            letterSpacing: "0.12em",
+                            textTransform: "uppercase",
+                        }}
+                    >
+                        Shop Now
+                    </a>
                 </div>
             </div>
 
