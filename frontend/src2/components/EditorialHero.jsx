@@ -2,7 +2,7 @@ import React from 'react';
 import { ArrowRight } from 'lucide-react';
 import heroimg from "../heroIMG/heroimg.jpg"
 // Mobile image — TODO: replace with your actual family photo path
-import familyImg from "../heroIMG/heroimg2.png"
+import familyImg from "../heroIMG/familyhero.jpg"
 
 const heroDesktopImg = heroimg;
 
@@ -114,85 +114,85 @@ const EditorialHero = () => {
                 no shared classes, no media-query overrides needed.
             ========================================================= */}
             <div
-                className="block md:hidden relative w-full mx-auto"
+                className="block md:hidden relative w-full overflow-hidden"
                 style={{
                     height: '70vh',
-                    maxWidth: '480px',
-                    background: '#F4F3F1', // soft light-gray studio background
+                    background: '#F4F3F1', // soft light-gray studio background — shows through as letterboxing too
                 }}
             >
-                <div className="absolute inset-0 flex">
+                {/* Full-bleed family photo — fills the whole hero, anchored right.
+                    object-contain keeps the full body visible (no cropping); any
+                    space the photo doesn't fill is covered by the container's own
+                    gray background, so it reads as one continuous backdrop. */}
+                <img
+                    src={familyImg}
+                    alt="Family wearing everyday essentials"
+                    className="absolute inset-0 w-full h-full"
+                    style={{
+                        objectFit: 'contain',
+                        objectPosition: 'right bottom',
+                    }}
+                />
 
-                    {/* Content area — left side, ~33% */}
-                    <div className="w-[36%] flex flex-col justify-center pl-5 pr-1.5 py-10 box-border">
-                        <h1 className="m-0">
-                            <span
-                                className="block text-black"
-                                style={{
-                                    fontFamily: "'Outfit', sans-serif",
-                                    fontWeight: 500,
-                                    fontSize: 'clamp(1.3rem, 7vw, 1.55rem)',
-                                    letterSpacing: '0.01em',
-                                    lineHeight: 1.15,
-                                }}
-                            >
-                                FAMILY
-                            </span>
-                            <span
-                                className="block text-black"
-                                style={{
-                                    fontFamily: "'Outfit', sans-serif",
-                                    fontWeight: 500,
-                                    fontSize: 'clamp(1.3rem, 7vw, 1.55rem)',
-                                    letterSpacing: '0.01em',
-                                    lineHeight: 1.15,
-                                }}
-                            >
-                                ESSENTIALS
-                            </span>
-                            <span
-                                className="block"
-                                style={{
-                                    fontFamily: "'Outfit', sans-serif",
-                                    fontWeight: 500,
-                                    fontSize: 'clamp(0.82rem, 4vw, 0.95rem)',
-                                    letterSpacing: '0.1em',
-                                    color: 'rgba(0,0,0,0.62)',
-                                    marginTop: '0.45rem',
-                                }}
-                            >
-                                FOR EVERYDAY
-                            </span>
-                        </h1>
-
-                        <button
-                            className="mt-6 w-fit rounded-full bg-black text-white"
+                {/* Text overlay — sits directly on the photo's negative space, left side */}
+                <div
+                    className="absolute inset-y-0 left-0 z-10 flex flex-col justify-center pl-6 pr-2 box-border"
+                    style={{ maxWidth: '58%' }}
+                >
+                    <h1 className="m-0">
+                        <span
+                            className="block text-black"
                             style={{
                                 fontFamily: "'Outfit', sans-serif",
                                 fontWeight: 500,
-                                fontSize: '0.68rem',
-                                letterSpacing: '0.12em',
-                                padding: '0.65rem 1.3rem',
-                                border: 'none',
-                                cursor: 'pointer',
+                                fontSize: 'clamp(1.4rem, 8vw, 1.75rem)',
+                                letterSpacing: '0.01em',
+                                lineHeight: 1.15,
                             }}
                         >
-                            SHOP NOW
-                        </button>
-                    </div>
-
-                    {/* Image area — right side, ~64% */}
-                    <div className="w-[64%] h-full flex items-end justify-center">
-                        <img
-                            src={familyImg}
-                            alt="Family wearing everyday essentials"
-                            className="h-full w-full"
+                            FAMILY
+                        </span>
+                        <span
+                            className="block text-black"
                             style={{
-                                objectFit: 'contain',      // keeps full body visible, no cropping
-                                objectPosition: 'bottom right',
+                                fontFamily: "'Outfit', sans-serif",
+                                fontWeight: 500,
+                                fontSize: 'clamp(1.4rem, 8vw, 1.75rem)',
+                                letterSpacing: '0.01em',
+                                lineHeight: 1.15,
                             }}
-                        />
-                    </div>
+                        >
+                            ESSENTIALS
+                        </span>
+                        <span
+                            className="block"
+                            style={{
+                                fontFamily: "'Outfit', sans-serif",
+                                fontWeight: 500,
+                                fontSize: 'clamp(0.85rem, 4.2vw, 1rem)',
+                                letterSpacing: '0.1em',
+                                color: 'rgba(0,0,0,0.62)',
+                                marginTop: '0.5rem',
+                            }}
+                        >
+                            FOR EVERYDAY
+                        </span>
+                    </h1>
+
+                    <button
+                        className="mt-6 w-fit rounded-full bg-black text-white"
+                        style={{
+                            fontFamily: "'Outfit', sans-serif",
+                            fontWeight: 500,
+                            fontSize: '0.68rem',
+                            letterSpacing: '0.12em',
+                            padding: '0.65rem 1.3rem',
+                            border: 'none',
+                            cursor: 'pointer',
+                        }}
+                    >
+                        SHOP NOW
+                    </button>
                 </div>
             </div>
 
